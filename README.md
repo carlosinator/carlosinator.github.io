@@ -3,7 +3,7 @@
 thank god language models are good now.
 
 
-## To run this do:
+## to run this do:
 
 ```bash
 npm run dev
