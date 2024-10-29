@@ -44,30 +44,26 @@ export default function Home() {
 
             {/* Bio Section */}
             <p className="text-sm text-gray-600 mb-8 max-w-[280px]">
-              Finishing my masters in computer science at ETH Zürich. Currently working on my thesis at the University of Cambridge.
-              Checkout my brand new <Link href="https://scholar.google.com/citations?user=5lyYqIsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-                Google Scholar
-              </Link> page or my <Link href="/github">GitHub</Link>.
+                Finishing my masters in computer science at ETH Zürich and currently working on my thesis at the University of Cambridge.
+                Checkout some of my work on <a href="https://github.com/carlosinator" target="_blank" rel="noopener noreferrer">Github</a>.
+                You can also find a more formal introduction on <a href="https://www.linkedin.com/in/carlos-vonessen-8265571bb/" target="_blank" rel="noopener noreferrer">Linkedin</a>.
             </p>
 
-            {/* Social Links in 2x2 Grid */}
-            <div className="grid grid-cols-2 gap-3 w-full max-w-[200px]">
+              {/* Social Links Row */}
+              <div className="flex gap-2 w-full max-w-[280px] justify-center">
               {[
-                { name: 'GitHub', href: 'https://github.com/carlosinator', active: true, isExternal: true },
-                { name: 'Scholar', href: 'https://scholar.google.com/citations?user=5lyYqIsAAAAJ&hl=en', active: true, isExternal: true },
-                { name: 'X', href: 'https://x.com/carlos_vonessen', active: true, isExternal: true },
-                { name: 'LinkedIn', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/', active: true, isExternal: true }
+                  { name: 'GitHub', href: 'https://github.com/carlosinator', active: true, isExternal: true },
+                  { name: 'Scholar', href: 'https://scholar.google.com/citations?user=5lyYqIsAAAAJ&hl=en', active: true, isExternal: true },
+                  { name: 'X', href: 'https://x.com/carlos_vonessen', active: true, isExternal: true }
               ].map(link => (
-                <div key={link.name} className="relative">
+                <div key={link.name} className="relative flex-1">
                   <a
                     href={link.href}
                     target={link.isExternal ? "_blank" : undefined}
                     rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    className={`px-4 py-2 rounded-xl text-center transition-all text-sm w-full block
-                      ${link.active
-                        ? 'bg-gray-800 text-white hover:bg-gray-700 hover:text-white'
-                        : 'bg-gray-200 text-gray-400 hover:bg-gray-300'
-                      }`}
+                    className="px-3 py-2 rounded-xl text-center transition-all text-sm w-full block
+                      bg-white text-black font-medium border-[1.5px] border-black
+                      hover:bg-black/5 hover:text-black"
                   >
                     {link.name}
                   </a>

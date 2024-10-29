@@ -9,9 +9,9 @@ export interface Update {
 }
 
 export const categoryColors: Record<UpdateCategory, string> = {
-    paper: 'text-blue-600',
-    post: 'text-emerald-600',
-    contribution: 'text-purple-600',
+    paper: 'text-gray-600',
+    post: 'text-gray-600',
+    contribution: 'text-gray-600',
     update: 'text-gray-600'
 };
 
@@ -39,7 +39,7 @@ export const updates: Update[] = [
     {
         date: "2024-04-28",
         title: "1st Place @ Datathon 2024",
-        content: "Our team of four won Switzerlands largest AI and ML hackathon. Our model predicted fine grained hourwise energy consumption from time series data at scale.",
+        content: "Our team of four won Switzerland's largest AI and ML hackathon. Our model predicted fine-grained hourwise energy consumption from time series data at scale.",
         category: "update",
         link: "https://www.linkedin.com/posts/analytics-club-eth_three-intense-days-of-datathon-2024-and-activity-7191099942159953920-ByMV/"
     },
@@ -57,4 +57,10 @@ export const updates: Update[] = [
         category: "contribution",
         link: "https://github.com/carlosinator/pixel-life"
     },
+    {
+        date: "2023-03-03",
+        title: "Scholarship from the German Studienstiftung",
+        content: "I was awarded the competitive merit scholarship from the German Studienstiftung. It's nice to have some financial support for my studies.",
+        category: "update"
+    }
 ]
