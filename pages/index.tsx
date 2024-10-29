@@ -1,11 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
 import { useState, useEffect } from 'react'
-import { updates, categoryColors, type UpdateCategory } from '../data/updates'
-import { ExternalLink, Link2 } from 'lucide-react'
-
-const inter = Inter({ subsets: ['latin'] })
+import { updates, categoryColors } from '../data/updates'
+import { ExternalLink } from 'lucide-react'
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);

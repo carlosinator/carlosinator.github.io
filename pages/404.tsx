@@ -1,4 +1,4 @@
-import Link from 'next/link'
+
 
 export default function Custom404() {
     return (
@@ -8,7 +8,7 @@ export default function Custom404() {
             </h1>
 
             <p className="text-lg mb-12 font-mono text-gray-600">
-                but here's a <a
+                but here is a <a
                     href="https://www.janestreet.com/puzzles/current-puzzle/"
                     target="_blank"
                     rel="noopener noreferrer"
