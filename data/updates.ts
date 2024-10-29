@@ -51,7 +51,7 @@ export const updates: Update[] = [
         link: "https://github.com/dvdblk/hack4good-oecd"
     },
     {
-        date: "2023-11-15",
+        date: "2023-07-01",
         title: "Pixel Life",
         content: "A small repo that plays with genetic algorithms and plant evolution. The visuals are pretty.",
         category: "contribution",

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { updates, categoryColors } from '../data/updates'
 import { ExternalLink } from 'lucide-react'
+import Head from 'next/head'
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
@@ -19,6 +20,11 @@ export default function Home() {
   }, [showPopup]);
 
   return (
+    <>
+      <Head>
+        <title>carlos vonessen</title>
+        <meta name="description" content="carlosinator" />
+      </Head>
     <div className="min-h-screen flex justify-center">
       <main className="w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col md:flex-row">
         {/* Profile Section */}
@@ -105,5 +111,6 @@ export default function Home() {
         </section>
       </main>
     </div>
+    </>
   )
 }
