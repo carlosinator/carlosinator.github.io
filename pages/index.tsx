@@ -38,12 +38,12 @@ export default function Home() {
                 priority
               />
             </div>
-            <h1 className="mt-4 text-2xl font-light tracking-wide">Carlos</h1>
-            <div className="font-mono text-sm opacity-70 mb-4">Statistics & ML</div>
+              <h1 className="mt-4 text-2xl font-light tracking-wide">Carlos Vonessen</h1>
+              <div className="font-mono text-sm opacity-70 mb-4"></div>
 
             {/* Bio Section */}
             <p className="text-sm text-gray-600 mb-8 max-w-[280px]">
-                Finishing my masters in computer science at ETH Zürich and currently working on my thesis at the University of Cambridge.
+                I am finishing my masters in CS at ETH Zürich and currently working on my thesis at the University of Cambridge.
                 Checkout some of my work on <a href="https://github.com/carlosinator" target="_blank" rel="noopener noreferrer">Github</a>.
                 You can also find a more formal introduction on <a href="https://www.linkedin.com/in/carlos-vonessen-8265571bb/" target="_blank" rel="noopener noreferrer">Linkedin</a>.
             </p>
@@ -52,7 +52,7 @@ export default function Home() {
               <div className="flex gap-2 w-full max-w-[280px] justify-center">
               {[
                   { name: 'GitHub', href: 'https://github.com/carlosinator', active: true, isExternal: true },
-                  { name: 'Scholar', href: 'https://scholar.google.com/citations?user=5lyYqIsAAAAJ&hl=en', active: true, isExternal: true },
+                  { name: 'Linkedin', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/', active: true, isExternal: true },
                   { name: 'X', href: 'https://x.com/carlos_vonessen', active: true, isExternal: true }
               ].map(link => (
                 <div key={link.name} className="relative flex-1">
@@ -74,7 +74,7 @@ export default function Home() {
 
         {/* News Feed Section Updates */}
         <section className="flex-grow max-w-2xl py-8 md:py-16 lg:py-24 md:pl-16 lg:pl-24">
-          <h2 className="text-2xl font-bold mb-12">All Things</h2>
+            <h2 className="text-2xl font-bold mb-12">List of All Things</h2>
 
           <div className="space-y-12">
             {updates.map((update) => (

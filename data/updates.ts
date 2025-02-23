@@ -17,9 +17,9 @@ export const categoryColors: Record<UpdateCategory, string> = {
 
 export const updates: Update[] = [
     {
-        date: "2024-10-15",
+        date: "2025-01-13",
         title: "Started the Thesis at Cambridge",
-        content: "Began my master's thesis research at the University of Cambridge under the supervision of Professor Pietro Liò, working on GFlowNets.",
+        content: "Began my master's thesis at the University of Cambridge under the supervision of Professor Pietro Liò.",
         category: "update"
     },
     {
@@ -38,8 +38,8 @@ export const updates: Update[] = [
     },
     {
         date: "2024-04-28",
-        title: "1st Place @ Datathon 2024",
-        content: "Our team of four won Switzerland's largest AI and ML hackathon. Our model predicted fine-grained hourwise energy consumption from time series data at scale.",
+        title: "1st Place @ ETH Datathon",
+        content: "Our team of four won Switzerland's largest AI and ML hackathon. Our model was the best at predicting fine-grained energy consumption from time series data at scale.",
         category: "update",
         link: "https://www.linkedin.com/posts/analytics-club-eth_three-intense-days-of-datathon-2024-and-activity-7191099942159953920-ByMV/"
     },
@@ -51,16 +51,16 @@ export const updates: Update[] = [
         link: "https://github.com/dvdblk/hack4good-oecd"
     },
     {
-        date: "2023-07-01",
-        title: "Pixel Life",
-        content: "A small repo that plays with genetic algorithms and plant evolution. The visuals are pretty.",
-        category: "contribution",
-        link: "https://github.com/carlosinator/pixel-life"
+        date: "2023-03-03",
+        title: "Scholarship from the German Academic Scholarship Foundation",
+        content: "I was awarded the competitive merit scholarship from the Studienstiftung. Some financial support is nice to have.",
+        category: "update"
     },
     {
-        date: "2023-03-03",
-        title: "Scholarship from the German Studienstiftung",
-        content: "I was awarded the competitive merit scholarship from the German Studienstiftung. It's nice to have some financial support for my studies.",
-        category: "update"
+        date: "2023-07-01",
+        title: "Pixel Life",
+        content: "A small repo that illustrates genetic algorithms and plant evolution with nice visuals.",
+        category: "contribution",
+        link: "https://github.com/carlosinator/pixel-life"
     }
 ]
