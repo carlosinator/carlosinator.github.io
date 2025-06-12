@@ -1,111 +1,130 @@
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { updates, categoryColors } from '../data/updates'
-import { ExternalLink } from 'lucide-react'
 import Head from 'next/head'
+import { updates } from '../data/updates'
+import { ExternalLink } from 'lucide-react'
+import React from 'react'
 
 export default function Home() {
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setShowPopup(false);
-    };
-
-    if (showPopup) {
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [showPopup]);
-
   return (
     <>
       <Head>
         <title>carlos vonessen</title>
         <meta name="description" content="carlosinator" />
       </Head>
-    <div className="min-h-screen flex justify-center">
-      <main className="w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col md:flex-row">
-        {/* Profile Section */}
-        <aside className="md:w-72 lg:w-80 shrink-0 py-8 md:py-16 lg:py-24 md:sticky md:top-0 md:h-screen">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative w-32 h-32 md:w-60 md:h-60">
-              <Image
-                src="/profile.jpg"
-                alt="Carlos"
-                fill
-                className="object-cover rounded-2xl"
-                priority
-              />
-            </div>
-              <h1 className="mt-4 text-2xl font-light tracking-wide">Carlos Vonessen</h1>
-              <div className="font-mono text-sm opacity-70 mb-4"></div>
+      <div className="min-h-screen bg-[#fafafa] px-6 sm:px-8 md:px-12 flex justify-center">
+        <div className="w-full max-w-3xl pt-32 space-y-16">
+          {/* Hero Section */}
+          <section className="flex flex-col md:flex-row md:items-start gap-8 bg-white border border-gray-200 rounded-xl shadow-md p-8">
+            {/* Text + Title */}
+            <div className="flex-1">
+              <h1 className="text-3xl font-light mb-4 text-center md:text-left">Carlos Vonessen</h1>
+              <p className="text-base text-gray-700 mb-4 md:mb-6 text-center md:text-left">
+                Hi, I'm Carlos. I am finishing my masters in CS @ ETH Zurich and working on my thesis at the University of Cambridge.
+                I am interested in the intersection of AI and biology. My current project is improving diffusion models for small molecule generation.
+              </p>
 
-            {/* Bio Section */}
-            <p className="text-sm text-gray-600 mb-8 max-w-[280px]">
-                I am finishing my masters in CS at ETH Zürich and currently working on my thesis at the University of Cambridge.
-                Checkout some of my work on <a href="https://github.com/carlosinator" target="_blank" rel="noopener noreferrer">Github</a>.
-                You can also find a more formal introduction on <a href="https://www.linkedin.com/in/carlos-vonessen-8265571bb/" target="_blank" rel="noopener noreferrer">Linkedin</a>.
-            </p>
-
-              {/* Social Links Row */}
-              <div className="flex gap-2 w-full max-w-[280px] justify-center">
-              {[
-                  { name: 'GitHub', href: 'https://github.com/carlosinator', active: true, isExternal: true },
-                  { name: 'Linkedin', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/', active: true, isExternal: true },
-                  { name: 'X', href: 'https://x.com/carlos_vonessen', active: true, isExternal: true }
-              ].map(link => (
-                <div key={link.name} className="relative flex-1">
+              {/* Contacts (text links) */}
+              <div className="flex justify-center md:justify-start gap-6 mt-6 text-gray-700">
+                {[
+                  { text: 'github', href: 'https://github.com/carlosinator' },
+                  { text: 'linkedin', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/' },
+                  { text: 'x', href: 'https://x.com/carlos_vonessen' }
+                ].map(({ text, href }) => (
                   <a
-                    href={link.href}
-                    target={link.isExternal ? "_blank" : undefined}
-                    rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    className="px-3 py-2 rounded-xl text-center transition-all text-sm w-full block
-                      bg-white text-black font-medium border-[1.5px] border-black
-                      hover:bg-black/5 hover:text-black"
+                    key={text}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl font-medium text-black lowercase hover:text-gray-700"
                   >
-                    {link.name}
+                    {text}
                   </a>
-                </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Headshot */}
+            <div className="flex justify-center md:justify-start">
+              <div className="relative w-32 h-32 md:w-48 md:h-48">
+                <Image
+                  src="/profile.jpg"
+                  alt="Carlos"
+                  fill
+                  className="object-cover rounded-xl"
+                  priority
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* News Section */}
+          <section className="pb-24 max-w-2xl mx-auto">
+            <h2 className="text-2xl font-bold mb-12 text-center md:text-left">News</h2>
+
+            <div className="space-y-12">
+              {updates.map((update) => (
+                <article
+                  key={update.date}
+                  className={`relative flex flex-row gap-4 items-start ${update.link ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
+                  onClick={() => update.link && window.open(update.link, '_blank')}
+                >
+                  {/* Thumbnail (optional) */}
+                  {update.thumbnail && (
+                    <div className="w-28 h-20 md:w-32 md:h-24 flex-none rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
+                      {typeof update.thumbnail === 'string' && update.thumbnail !== 'placeholder' && (
+                        <Image
+                          src={update.thumbnail}
+                          alt="thumbnail"
+                          width={128}
+                          height={80}
+                          className={`${update.thumbnailContain ? 'object-contain' : 'object-cover'} w-28 h-20 md:w-32 md:h-24 rounded-md`}
+                        />
+                      )}
+                    </div>
+                  )}
+
+                  {/* Textual content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-1">
+                      <time className="font-mono text-xs opacity-70">
+                        {update.date}
+                      </time>
+                      <span
+                        className={`text-xs font-['Courier'] uppercase tracking-wider px-2 py-0.5 rounded-md ${update.category === 'paper'
+                          ? 'bg-red-100 text-red-700'
+                          : update.category === 'post'
+                            ? 'bg-emerald-100 text-emerald-700'
+                            : update.category === 'project'
+                              ? 'bg-green-100 text-green-700'
+                              : 'bg-sky-100 text-sky-700'
+                          }`}
+                      >
+                        {update.category}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-light mb-1 flex items-center gap-2">
+                      {update.title}
+                      {update.link && (
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-900" />
+                      )}
+                    </h3>
+                    <p className="text-sm opacity-80 font-light">
+                      {Array.isArray(update.content)
+                        ? update.content.map((part, i) => <React.Fragment key={i}>{part}</React.Fragment>)
+                        : update.content}
+                    </p>
+                  </div>
+                </article>
               ))}
             </div>
-          </div>
-        </aside>
+          </section>
 
-        {/* News Feed Section Updates */}
-        <section className="flex-grow max-w-2xl py-8 md:py-16 lg:py-24 md:pl-16 lg:pl-24">
-            <h2 className="text-2xl font-bold mb-12">List of All Things</h2>
-
-          <div className="space-y-12">
-            {updates.map((update) => (
-              <article
-                key={update.date}
-                className={`relative ${update.link ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
-                onClick={() => update.link && window.open(update.link, '_blank')}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <time className="font-mono text-xs opacity-70">
-                    {update.date}
-                  </time>
-                  <span className={`text-xs font-['Courier'] uppercase tracking-wider ${categoryColors[update.category]} opacity-80`}>
-                    {update.category}
-                  </span>
-                </div>
-                <h3 className="text-lg font-light mb-2 flex items-center gap-2">
-                  {update.title}
-                  {update.link && (
-                    <ExternalLink className="w-3.5 h-3.5 text-gray-900" />
-                  )}
-                </h3>
-                <p className="text-sm opacity-80 font-light">
-                  {update.content}
-                </p>
-              </article>
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
+          {/* Footer */}
+          <footer className="text-center text-sm text-gray-500 pb-12 pt-4 border-t border-gray-200">
+            © {new Date().getFullYear()} Carlos Vonessen
+          </footer>
+        </div>
+      </div>
     </>
   )
 }
