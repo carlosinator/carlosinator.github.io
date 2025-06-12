@@ -65,19 +65,20 @@ export default function Home() {
               {updates.map((update) => (
                 <article
                   key={update.date}
-                  className={`relative flex flex-row gap-4 items-start ${update.link ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
+                  className={`relative flex flex-col md:flex-row gap-4 items-start ${update.link ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
                   onClick={() => update.link && window.open(update.link, '_blank')}
                 >
                   {/* Thumbnail (optional) */}
                   {update.thumbnail && (
-                    <div className="w-28 h-20 md:w-32 md:h-24 flex-none rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <div className="w-full aspect-[16/10] md:w-28 md:h-20 md:aspect-auto md:w-32 md:h-24 flex-none rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
                       {typeof update.thumbnail === 'string' && update.thumbnail !== 'placeholder' && (
                         <Image
                           src={update.thumbnail}
                           alt="thumbnail"
-                          width={128}
-                          height={80}
-                          className={`${update.thumbnailContain ? 'object-contain' : 'object-cover'} w-28 h-20 md:w-32 md:h-24 rounded-md`}
+                          fill={false}
+                          width={512}
+                          height={320}
+                          className={`${update.thumbnailContain ? 'object-contain' : 'object-cover'} w-full h-full rounded-md`}
                         />
                       )}
                     </div>
@@ -102,10 +103,17 @@ export default function Home() {
                         {update.category}
                       </span>
                     </div>
-                    <h3 className="text-lg font-light mb-1 flex items-center gap-2">
+                    <h3 className="text-lg font-light mb-1">
                       {update.title}
                       {update.link && (
-                        <ExternalLink className="w-3.5 h-3.5 text-gray-900" />
+                        <a
+                          href={update.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline align-baseline ml-2"
+                        >
+                          <ExternalLink className="inline w-4 h-4 text-gray-900 align-baseline" style={{ verticalAlign: '-0.125em' }} />
+                        </a>
                       )}
                     </h3>
                     <p className="text-sm opacity-80 font-light">
