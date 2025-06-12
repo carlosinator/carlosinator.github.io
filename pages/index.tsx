@@ -19,7 +19,7 @@ export default function Home() {
             <div className="flex-1">
               <h1 className="text-3xl font-light mb-4 text-center md:text-left">Carlos Vonessen</h1>
               <p className="text-base text-gray-700 mb-4 md:mb-6 text-center md:text-left">
-                Hi, I'm Carlos. I am finishing my masters in CS @ ETH Zurich and working on my thesis at the University of Cambridge.
+                Hi, I am Carlos. I am finishing my masters in CS @ ETH Zurich and working on my thesis at the University of Cambridge.
                 I am interested in the intersection of AI and biology. My current project is improving diffusion models for small molecule generation.
               </p>
 
