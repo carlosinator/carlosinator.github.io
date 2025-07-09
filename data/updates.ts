@@ -21,17 +21,25 @@ export const categoryColors: Record<UpdateCategory, string> = {
 
 export const updates: Update[] = [
     {
+        date: "2025-07-02",
+        title: "TABASCO: Making Molecules Faster and Better",
+        content: "My Master's thesis shows that non-equivariant transformers generate higher quality molecules. Presenting it at GenBio @ ICML 2025!",
+        category: "paper",
+        link: "https://github.com/carlosinator/tabasco",
+        thumbnail: "/pink-animation-3.gif",
+    },
+    {
         date: "2025-06-12",
         title: "AI x Bio Unconference in San Francisco",
-        content: "A friend and I randomly decided to host an AI for bio meetup. Now its an unconference with Simon Kohl, Sam Rodriques and Brandon Wood!",
+        content: "A friend and I organized an AI for Bio unconference with John Jumper, Sam Rodriques, and Simon Kohl!",
         category: "update",
-        link: "https://www.linkedin.com/posts/soo-jeongkim_aixbio-unconference-genai-activity-7338621119265980418-_UoY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMpNN4B2_gNsSU93SO3Rm0TI8p7VyEaPEY",
+        link: "https://www.linkedin.com/posts/soo-jeongkim_had-so-much-fun-hosting-a-roundtable-featuring-activity-7343243699935473665-Zv9E?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMpNN4B2_gNsSU93SO3Rm0TI8p7VyEaPEY",
         thumbnail: "/unconference_img.png"
     },
     {
         date: "2025-01-13",
         title: "Started the Thesis at Cambridge",
-        content: "Began my master's thesis at the University of Cambridge under the supervision of Professor Pietro Liò.",
+        content: "I'm joining Prof. Liò's lab at Cambridge as a visitor to work on my masters thesis.",
         category: "update"
     },
     {
