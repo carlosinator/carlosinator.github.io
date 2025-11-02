@@ -19,16 +19,17 @@ export default function Home() {
             <div className="flex-1">
               <h1 className="text-3xl font-light mb-4 text-center md:text-left">Carlos Vonessen</h1>
               <p className="text-base text-gray-700 mb-4 md:mb-6 text-center md:text-left">
-                Hi, I am Carlos. I am finishing my masters in CS @ ETH Zurich and working on my thesis at the University of Cambridge.
-                I am interested in the intersection of AI and biology. My current project is improving diffusion models for small molecule generation.
+                Hi, I am Carlos. I am wrapping up my masters in CS at ETH Zurich and working on generative models in biology.
+                Currently based in Zurich but moving to San Francisco in the new year!
               </p>
 
               {/* Contacts (text links) */}
               <div className="flex justify-center md:justify-start gap-6 mt-6 text-gray-700">
                 {[
                   { text: 'github', href: 'https://github.com/carlosinator' },
+                  { text: 'x', href: 'https://x.com/carlos_vonessen' },
                   { text: 'linkedin', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/' },
-                  { text: 'x', href: 'https://x.com/carlos_vonessen' }
+
                 ].map(({ text, href }) => (
                   <a
                     key={text}
@@ -59,7 +60,7 @@ export default function Home() {
 
           {/* News Section */}
           <section className="pb-24 max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold mb-12 text-center md:text-left">News</h2>
+            {/* <h2 className="text-2xl font-bold mb-12 text-center md:text-left">All Things</h2> */}
 
             <div className="space-y-12">
               {updates.map((update) => (

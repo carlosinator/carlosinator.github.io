@@ -21,6 +21,13 @@ export const categoryColors: Record<UpdateCategory, string> = {
 
 export const updates: Update[] = [
     {
+        date: "2025-09-30",
+        title: "Deep Learning Research Internship",
+        content: "I spent the summer in San Francisco with the wonderful people at Ligo Biosciences working on generative models in biology :)",
+        category: "update",
+        thumbnail: "/ligo_img.png",
+    },
+    {
         date: "2025-07-02",
         title: "TABASCO: Making Molecules Faster and Better",
         content: "My Master's thesis shows that non-equivariant transformers generate higher quality molecules. Presenting it at GenBio @ ICML 2025!",
@@ -48,7 +55,7 @@ export const updates: Update[] = [
         content: "Our paper won the best paper award at the MLG Workshop @ ECMLPKDD 2024 :)",
         category: "update",
         link: "https://mlg-europe.github.io/2024/#awards",
-        thumbnail: "/best_paper_img.jpg"
+        thumbnail: "/best_paper_img.jpeg"
     },
     {
         date: "2024-08-29",
