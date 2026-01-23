@@ -11,127 +11,128 @@ export default function Home() {
         <title>carlos vonessen</title>
         <meta name="description" content="carlosinator" />
       </Head>
-      <div className="min-h-screen bg-[#fafafa] px-6 sm:px-8 md:px-12 flex justify-center">
-        <div className="w-full max-w-3xl pt-32 space-y-16">
-          {/* Hero Section */}
-          <section className="flex flex-col md:flex-row md:items-start gap-8 bg-white border border-gray-200 rounded-xl shadow-md p-8">
-            {/* Text + Title */}
-            <div className="flex-1">
-              <h1 className="text-3xl font-light mb-4 text-center md:text-left">Carlos Vonessen</h1>
-              <p className="text-base text-gray-700 mb-4 md:mb-6 text-center md:text-left">
-                Hi, I am Carlos. I am wrapping up my masters in CS at ETH Zurich and working on generative models in biology.
-                Currently based in Zurich but moving to San Francisco in the new year!
-              </p>
-
-              {/* Contacts (text links) */}
-              <div className="flex justify-center md:justify-start gap-6 mt-6 text-gray-700">
-                {[
-                  { text: 'github', href: 'https://github.com/carlosinator' },
-                  { text: 'x', href: 'https://x.com/carlos_vonessen' },
-                  { text: 'linkedin', href: 'https://www.linkedin.com/in/carlos-vonessen-8265571bb/' },
-
-                ].map(({ text, href }) => (
-                  <a
-                    key={text}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xl font-medium text-black lowercase hover:text-gray-700"
-                  >
-                    {text}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Headshot */}
-            <div className="flex justify-center md:justify-start">
-              <div className="relative w-32 h-32 md:w-48 md:h-48">
+      <div className="min-h-screen bg-white">
+        <div className="flex flex-col lg:flex-row max-w-6xl mx-auto px-6 py-12 lg:py-24 gap-12 lg:gap-24">
+          {/* Left Sidebar */}
+          <aside className="lg:w-64 flex-shrink-0">
+            <div className="lg:sticky lg:top-24">
+              {/* Profile Image */}
+              <div className="relative w-32 h-32 mb-6">
                 <Image
                   src="/profile.jpg"
                   alt="Carlos"
                   fill
-                  className="object-cover rounded-xl"
+                  className="object-cover rounded"
                   priority
                 />
               </div>
-            </div>
-          </section>
 
-          {/* News Section */}
-          <section className="pb-24 max-w-2xl mx-auto">
-            {/* <h2 className="text-2xl font-bold mb-12 text-center md:text-left">All Things</h2> */}
+              {/* Name */}
+              <h1 className="text-2xl mb-4">Carlos Vonessen</h1>
 
-            <div className="space-y-12">
-              {updates.map((update) => (
-                <article
-                  key={update.date}
-                  className={`relative flex flex-col md:flex-row gap-4 items-start ${update.link ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
-                  onClick={() => update.link && window.open(update.link, '_blank')}
+              {/* Bio */}
+              <p className="text-gray-700 mb-6 text-sm leading-relaxed">
+                Hi, I am Carlos. I am wrapping up my masters in CS at ETH Zurich and working on generative models in biology.
+                Currently based in Zurich but moving to San Francisco in the new year!
+              </p>
+
+              {/* Links */}
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://github.com/carlosinator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black font-medium"
                 >
-                  {/* Thumbnail (optional) */}
-                  {update.thumbnail && (
-                    <div className="w-full aspect-[16/10] md:w-28 md:h-20 md:aspect-auto md:w-32 md:h-24 flex-none rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
-                      {typeof update.thumbnail === 'string' && update.thumbnail !== 'placeholder' && (
+                  github
+                </a>
+                <a
+                  href="https://x.com/carlos_vonessen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black font-medium"
+                >
+                  x
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carlos-vonessen-8265571bb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black font-medium"
+                >
+                  linkedin
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <main className="flex-1 max-w-2xl">
+            <div className="divide-y divide-gray-200">
+              {updates.map((update) => (
+                <article key={update.date} className="group py-8 first:pt-0">
+                  {/* Title and Date on same line */}
+                  <h2 className="text-xl font-semibold mb-4 leading-relaxed">
+                    {update.link ? (
+                      <a
+                        href={update.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline hover:text-gray-600"
+                      >
+                        {update.title}
+                      </a>
+                    ) : (
+                      update.title
+                    )}
+                    <span className="text-gray-400 ml-3 font-normal">
+                      ({update.date})
+                    </span>
+                  </h2>
+
+                  {/* Content with optional floating image */}
+                  <div>
+                    {update.thumbnail && (
+                      <div
+                        className={`float-left mr-6 mb-3 w-48 h-28 rounded border border-gray-200 overflow-hidden bg-gray-50 ${update.link ? 'cursor-pointer hover:border-gray-300' : ''}`}
+                        onClick={() => update.link && window.open(update.link, '_blank')}
+                      >
                         <Image
                           src={update.thumbnail}
-                          alt="thumbnail"
-                          fill={false}
-                          width={512}
-                          height={320}
-                          className={`${update.thumbnailContain ? 'object-contain' : 'object-cover'} w-full h-full rounded-md`}
+                          alt=""
+                          width={300}
+                          height={187}
+                          className={`w-full h-full ${update.thumbnailContain ? 'object-contain' : 'object-cover'} ${update.link ? 'group-hover:opacity-90' : ''}`}
                         />
-                      )}
-                    </div>
-                  )}
-
-                  {/* Textual content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-1">
-                      <time className="font-mono text-xs opacity-70">
-                        {update.date}
-                      </time>
-                      <span
-                        className={`text-xs font-['Courier'] uppercase tracking-wider px-2 py-0.5 rounded-md ${update.category === 'paper'
-                          ? 'bg-red-100 text-red-700'
-                          : update.category === 'post'
-                            ? 'bg-emerald-100 text-emerald-700'
-                            : update.category === 'project'
-                              ? 'bg-green-100 text-green-700'
-                              : 'bg-sky-100 text-sky-700'
-                          }`}
-                      >
-                        {update.category}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-light mb-1">
-                      {update.title}
-                      {update.link && (
-                        <a
-                          href={update.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline align-baseline ml-2"
-                        >
-                          <ExternalLink className="inline w-4 h-4 text-gray-900 align-baseline" style={{ verticalAlign: '-0.125em' }} />
-                        </a>
-                      )}
-                    </h3>
-                    <p className="text-sm opacity-80 font-light">
+                      </div>
+                    )}
+                    <p className="text-base text-gray-700 leading-relaxed">
                       {Array.isArray(update.content)
                         ? update.content.map((part, i) => <React.Fragment key={i}>{part}</React.Fragment>)
                         : update.content}
                     </p>
+                    {update.link && (
+                      <a
+                        href={update.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 mt-2 text-sm font-semibold text-gray-600 hover:text-black"
+                      >
+                        link
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                    <div className="clear-both"></div>
                   </div>
                 </article>
               ))}
             </div>
-          </section>
 
-          {/* Footer */}
-          <footer className="text-center text-sm text-gray-500 pb-12 pt-4 border-t border-gray-200">
-            © {new Date().getFullYear()} Carlos Vonessen
-          </footer>
+            {/* Footer */}
+            <footer className="text-xs text-gray-400 mt-24 pt-8 border-t border-gray-200">
+              © {new Date().getFullYear()} Carlos Vonessen
+            </footer>
+          </main>
         </div>
       </div>
     </>

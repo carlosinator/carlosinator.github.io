@@ -1,5 +1,19 @@
 import React from 'react';
 
+/*
+ * TEMPLATE - Copy and paste this to add a new entry:
+ *
+ * {
+ *     date: "2025-01-23",
+ *     title: "Your Title Here",
+ *     content: "Your description here.",
+ *     category: "update",  // Options: "paper", "post", "update", "project"
+ *     link: "https://...",  // Optional
+ *     thumbnail: "/your-image.png",  // Optional - put image in /public/
+ *     thumbnailContain: false,  // Optional - set to true if image needs padding
+ * },
+ */
+
 export type UpdateCategory = 'paper' | 'post' | 'update' | 'project';
 
 export interface Update {
@@ -11,13 +25,6 @@ export interface Update {
     thumbnail?: string;
     thumbnailContain?: boolean;
 }
-
-export const categoryColors: Record<UpdateCategory, string> = {
-    paper: 'bg-red-500 text-white',
-    post: 'bg-emerald-500 text-white',
-    project: 'bg-indigo-500 text-white',
-    update: 'bg-sky-500 text-white'
-};
 
 export const updates: Update[] = [
     {
@@ -90,7 +97,7 @@ export const updates: Update[] = [
     {
         date: "2023-07-01",
         title: "Pixel Life",
-        content: "A small repo that shows genetic algorithms and plantoid evolution with nice visuals.",
+        content: "A very small project that shows genetic algorithms and plantoid evolution with nice visuals.",
         category: "project",
         link: "https://github.com/carlosinator/pixel-life",
         thumbnail: "/pixel_life_img.png"
