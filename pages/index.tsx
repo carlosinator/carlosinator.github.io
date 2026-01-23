@@ -102,6 +102,7 @@ export default function Home() {
                           alt=""
                           width={300}
                           height={187}
+                          loading="lazy"
                           className={`w-full h-full ${update.thumbnailContain ? 'object-contain' : 'object-cover'} ${update.link ? 'group-hover:opacity-90' : ''}`}
                         />
                       </div>
