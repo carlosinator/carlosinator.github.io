@@ -91,7 +91,7 @@ export const updates: Update[] = [
     {
         date: "2023-03-03",
         title: "Scholarship",
-        content: "Got awarded the merit scholarship from the German Academic Scholarship Foundation.",
+        content: "Was awarded the merit scholarship from the German Academic Scholarship Foundation.",
         category: "update"
     },
     {
