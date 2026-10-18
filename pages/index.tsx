@@ -32,8 +32,8 @@ export default function Home() {
 
               {/* Bio */}
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Hi, I am Carlos. I am wrapping up my masters in CS at ETH Zurich and working on generative models in biology.
-                Currently based in Zurich but moving to San Francisco in the new year!
+                Hi, I am Carlos. I do AI research at Chai Discovery, where we work on generative models for biology.
+                I live in San Francisco.
               </p>
 
               {/* Links */}

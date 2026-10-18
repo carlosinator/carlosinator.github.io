@@ -28,6 +28,13 @@ export interface Update {
 
 export const updates: Update[] = [
     {
+        date: "2026-03-01",
+        title: "Research at Chai Discovery",
+        content: "Moved back to San Francisco and joined Chai as a researcher to work on generative models for antibody design :)",
+        category: "update",
+        link: "https://www.chaidiscovery.com/news/series-c",
+    },
+    {
         date: "2025-09-30",
         title: "Deep Learning Research Internship",
         content: "I spent the summer in San Francisco with the wonderful people at Ligo Biosciences working on generative models in biology :)",
