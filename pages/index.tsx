@@ -28,20 +28,20 @@ export default function Home() {
               {/* Links */}
               <div className="flex flex-col gap-2">
                 <a
-                  href="https://github.com/carlosinator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-black font-medium"
-                >
-                  github
-                </a>
-                <a
                   href="https://x.com/carlos_vonessen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-black font-medium"
                 >
                   x
+                </a>
+                <a
+                  href="https://github.com/carlosinator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black font-medium"
+                >
+                  github
                 </a>
                 <a
                   href="https://www.linkedin.com/in/carlos-vonessen-8265571bb/"
@@ -65,7 +65,7 @@ export default function Home() {
 
           {/* Main Content */}
           <main className="flex-1 max-w-2xl">
-            <div className="divide-y divide-gray-200">
+            <div>
               {updates.map((update) => (
                 <article key={update.date} className="group py-8 first:pt-0">
                   {/* Title and Date on same line */}
