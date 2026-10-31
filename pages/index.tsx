@@ -32,7 +32,7 @@ export default function Home() {
 
               {/* Bio */}
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Hi, I am Carlos. I do AI research at Chai Discovery, where we work on generative models for biology.
+                Hi, I am Carlos. I work on AI research at Chai Discovery, where we build generative models for biology.
                 I live in San Francisco.
               </p>
 
@@ -61,6 +61,14 @@ export default function Home() {
                   className="text-gray-700 hover:text-black font-medium"
                 >
                   linkedin
+                </a>
+                <a
+                  href="https://www.admonymous.co/carlosinator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black font-medium"
+                >
+                  feedback
                 </a>
               </div>
             </div>

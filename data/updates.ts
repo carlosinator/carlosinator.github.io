@@ -32,11 +32,11 @@ export const updates: Update[] = [
         title: "Research at Chai Discovery",
         content: "Moved back to San Francisco and joined Chai as a researcher to work on generative models for antibody design :)",
         category: "update",
-        link: "https://www.chaidiscovery.com/news/series-c",
+        link: "https://www.nytimes.com/2026/07/14/business/dealbook/chai-discovery-ai-drug-development.html",
     },
     {
         date: "2025-09-30",
-        title: "Deep Learning Research Internship",
+        title: "Research Internship at Ligo",
         content: "I spent the summer in San Francisco with the wonderful people at Ligo Biosciences working on generative models in biology :)",
         category: "update",
         thumbnail: "/ligo_img.png",
