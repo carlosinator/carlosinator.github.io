@@ -11,22 +11,11 @@ export default function Home() {
         <title>carlos vonessen</title>
         <meta name="description" content="carlosinator" />
       </Head>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--site-background, #F7F8F9)' }}>
         <div className="flex flex-col lg:flex-row max-w-6xl mx-auto px-6 py-12 lg:py-24 gap-12 lg:gap-24">
           {/* Left Sidebar */}
           <aside className="lg:w-64 flex-shrink-0">
             <div className="lg:sticky lg:top-24">
-              {/* Profile Image */}
-              <div className="relative w-32 h-32 mb-6">
-                <Image
-                  src="/profile.jpg"
-                  alt="Carlos"
-                  fill
-                  className="object-cover rounded"
-                  priority
-                />
-              </div>
-
               {/* Name */}
               <h1 className="text-2xl mb-4">Carlos Vonessen</h1>
 
