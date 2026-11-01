@@ -2,7 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  background-color: #E1E7EB; /* Cooler · original, also visible when overscrolling */
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.site-frame { max-width: 960px; }
+
+.intro-copy,
+.timeline-entry {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.entry-photo {
+  width: calc(150px * var(--photo-scale, 1));
+  height: calc(150px * var(--photo-scale, 1));
+  margin-top: 24px;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .timeline-entry {
+    max-width: none;
+  }
+
+  .entry-copy {
+    width: calc(100% - 182px);
+  }
+
+  .entry-photo {
+    position: absolute;
+    right: 0;
+    top: var(--photo-y, 0px);
+    margin: 0;
+    transform: translateX(min(var(--photo-offset, 0px), 16px));
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro-copy {
+    margin-left: 24px;
+    margin-right: 0;
+  }
+
+  .timeline-entry {
+    max-width: none;
+  }
+
+  .entry-copy {
+    width: 420px;
+    margin-left: 24px;
+  }
+
+  .entry-photo {
+    position: absolute;
+    /* Keep the stagger within the right margin, including at smaller desktops. */
+    left: calc(548px + min(var(--photo-offset, 0px), max(0px, 100% - 712px)));
+    top: var(--photo-y, 0px);
+    width: calc(164px * var(--photo-scale, 1));
+    height: calc(164px * var(--photo-scale, 1));
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+.entry-photo:hover {
+  z-index: 2;
+}
+
+
+.entry-date {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 11px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-detail { position: relative; min-width: 0; }
+.entry-title { margin-bottom: 0; font-size: 14px; font-weight: 600; line-height: 22px; }
+.entry-description { color: #4b5563; font-size: 14px; line-height: 22px; }
+.entry-bullet { display: none; }
+.updates-list .timeline-entry { margin-bottom: 36px; }
+
+.list-bullets .entry-bullet {
+  display: block;
+  position: absolute;
+  left: -18px;
+  top: 0;
+  color: #6b7280;
+  line-height: 22px;
+}
+
+.list-dates .entry-copy,
+.list-years .entry-copy {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.list-dates .entry-date,
+.list-years .entry-date { margin-bottom: 0; padding-top: 2px; }
+.list-years .entry-copy { grid-template-columns: 36px minmax(0, 1fr); }
+.year-group + .year-group { margin-top: 52px; }
+.year-heading { max-width: 420px; margin: 0 auto 24px; color: #6b7280; font-size: 14px; font-weight: 500; line-height: 20px; }
+
+@media (max-width: 639px) {
+  .list-dates .entry-copy { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+  .list-years .entry-copy { gap: 14px; }
+}
+
+@media (min-width: 1024px) {
+  .year-heading { margin-left: 24px; margin-right: 0; }
+}
+
+
+.entry-diagram > a,
+.entry-diagram > div {
+  background: transparent;
 }

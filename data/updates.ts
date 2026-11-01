@@ -30,24 +30,33 @@ export const updates: Update[] = [
     {
         date: "2026-03-01",
         title: "Research at Chai Discovery",
-        content: "Moved back to San Francisco and joined Chai as a researcher to work on generative models for antibody design :)",
+        content: "Moved back to San Francisco and joined Chai as a researcher to work on generative models for antibody design.",
         category: "update",
         link: "https://www.nytimes.com/2026/07/14/business/dealbook/chai-discovery-ai-drug-development.html",
     },
     {
+        date: "2025-11-02",
+        title: "Life Elixir",
+        content: "I found my new favourite drink.",
+        category: "post",
+        link: "https://carlosinator.substack.com/p/life-elixir",
+        thumbnail: "/boba_img.jpg",
+    },
+    {
         date: "2025-09-30",
         title: "Research Internship at Ligo",
-        content: "I spent the summer in San Francisco with the wonderful people at Ligo Biosciences working on generative models in biology :)",
+        content: "I spent the summer in San Francisco with the wonderful people at Ligo Biosciences working on generative models in biology.",
         category: "update",
         thumbnail: "/ligo_img.png",
     },
     {
         date: "2025-07-02",
         title: "TABASCO: Making Molecules Faster and Better",
-        content: "My Master's thesis shows that non-equivariant transformers generate higher quality molecules. Presenting it at GenBio @ ICML 2025!",
+        content: "My Master's thesis shows that non-equivariant transformers generate higher quality molecules. Presented at GenBio @ ICML 2025; published in TMLR.",
         category: "paper",
         link: "https://github.com/carlosinator/tabasco",
-        thumbnail: "/pink-animation-3.gif",
+        thumbnail: "/pink-animation-3-transparent.webp",
+        thumbnailContain: true,
     },
     {
         date: "2025-06-12",
@@ -58,23 +67,9 @@ export const updates: Update[] = [
         thumbnail: "/unconference_img.png"
     },
     {
-        date: "2025-01-13",
-        title: "Started the Thesis at Cambridge",
-        content: "I'm joining Prof. Liò's lab at Cambridge as a visitor to work on my masters thesis.",
-        category: "update"
-    },
-    {
-        date: "2024-09-09",
-        title: "Best Paper Award",
-        content: "Our paper won the best paper award at the MLG Workshop @ ECMLPKDD 2024 :)",
-        category: "update",
-        link: "https://mlg-europe.github.io/2024/#awards",
-        thumbnail: "/best_paper_img.jpeg"
-    },
-    {
         date: "2024-08-29",
         title: "Next Level Message-Passing with Hierarchical Support Graphs",
-        content: "My semester thesis was published. We introduce hierarchical support graphs as a performant low cost alternative to graph transformers.",
+        content: "My semester thesis introduces hierarchical support graphs, an efficient alternative to graph transformers. MLG 2024 Best Paper.",
         category: "paper",
         link: "https://arxiv.org/abs/2406.15852",
         thumbnail: "/hsg_2d.png",
