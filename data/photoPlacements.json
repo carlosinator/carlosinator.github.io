@@ -1,0 +1,31 @@
+{
+  "/boba_img.jpg": {
+    "offset": 40,
+    "y": -88
+  },
+  "/ligo_img.png": {
+    "offset": 171,
+    "y": -61
+  },
+  "/pink-animation-3-transparent.webp": {
+    "offset": -74,
+    "y": -42
+  },
+  "/unconference_img.png": {
+    "offset": 91,
+    "y": -43
+  },
+  "/hsg_2d.png": {
+    "offset": -44,
+    "y": -63
+  },
+  "/datathon_img.png": {
+    "offset": 155,
+    "y": -46,
+    "scale": 0.92
+  },
+  "/pixel_life_img.png": {
+    "offset": 56,
+    "y": 2
+  }
+}

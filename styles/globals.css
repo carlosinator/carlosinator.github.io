@@ -14,69 +14,36 @@ body {
 
 .site-frame { max-width: 960px; }
 
-.intro-copy,
-.timeline-entry {
+.intro-copy {
   max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 24px;
 }
+
+header.intro-copy { max-width: 620px; }
 
 .timeline-entry {
   position: relative;
   margin-bottom: 48px;
 }
 
+/* The text column shrinks with the window; the scattered images stay anchored to the right edge.
+   Only once the text hits its minimum width do the images that would overlap it get pushed right. */
+.entry-copy {
+  width: clamp(220px, 100% - 460px, 420px);
+  margin-left: 24px;
+}
+
 .entry-photo {
-  width: calc(150px * var(--photo-scale, 1));
-  height: calc(150px * var(--photo-scale, 1));
-  margin-top: 24px;
-  margin-left: auto;
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .timeline-entry {
-    max-width: none;
-  }
-
-  .entry-copy {
-    width: calc(100% - 182px);
-  }
-
-  .entry-photo {
-    position: absolute;
-    right: 0;
-    top: var(--photo-y, 0px);
-    margin: 0;
-    transform: translateX(min(var(--photo-offset, 0px), 16px));
-    z-index: 1;
-  }
-}
-
-@media (min-width: 1024px) {
-  .intro-copy {
-    margin-left: 24px;
-    margin-right: 0;
-  }
-
-  .timeline-entry {
-    max-width: none;
-  }
-
-  .entry-copy {
-    width: 420px;
-    margin-left: 24px;
-  }
-
-  .entry-photo {
-    position: absolute;
-    /* Keep the stagger within the right margin, including at smaller desktops. */
-    left: calc(548px + min(var(--photo-offset, 0px), max(0px, 100% - 712px)));
-    top: var(--photo-y, 0px);
-    width: calc(164px * var(--photo-scale, 1));
-    height: calc(164px * var(--photo-scale, 1));
-    margin: 0;
-    z-index: 1;
-  }
+  position: absolute;
+  left: max(
+    calc(100% - 332px + min(var(--photo-offset, 0px), 168px)),
+    calc(24px + clamp(220px, 100% - 460px, 420px) + 30px)
+  );
+  top: var(--photo-y, 0px);
+  width: calc(164px * var(--photo-scale, 1));
+  height: calc(164px * var(--photo-scale, 1));
+  margin: 0;
+  z-index: 1;
 }
 
 .entry-photo:hover {
@@ -84,19 +51,17 @@ body {
 }
 
 
-.entry-date {
-  display: block;
-  margin-bottom: 6px;
-  color: #6b7280;
-  font-size: 11px;
-  line-height: 20px;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
 .entry-detail { position: relative; min-width: 0; }
 .entry-title { margin-bottom: 0; font-size: 14px; font-weight: 600; line-height: 22px; }
 .entry-description { color: #4b5563; font-size: 14px; line-height: 22px; }
+.inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #000;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.inline-link:hover { text-decoration-thickness: 2px; }
 .entry-bullet { display: none; }
 .updates-list .timeline-entry { margin-bottom: 36px; }
 
@@ -116,8 +81,6 @@ body {
   gap: 20px;
 }
 
-.list-dates .entry-date,
-.list-years .entry-date { margin-bottom: 0; padding-top: 2px; }
 .list-years .entry-copy { grid-template-columns: 36px minmax(0, 1fr); }
 .year-group + .year-group { margin-top: 52px; }
 .year-heading { max-width: 420px; margin: 0 auto 24px; color: #6b7280; font-size: 14px; font-weight: 500; line-height: 20px; }
@@ -135,4 +98,32 @@ body {
 .entry-diagram > a,
 .entry-diagram > div {
   background: transparent;
+}
+
+.narrow-note { display: none; }
+
+/* Narrower than the intended minimum window width (960px): keep only the bio and links, then
+   point visitors to the desktop version instead of squeezing the timeline in. */
+@media (max-width: 959px) {
+  header.intro-copy {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 260px;
+  }
+
+  header.intro-copy p {
+    margin-bottom: 36px;
+  }
+
+  header.intro-copy nav {
+    justify-content: center;
+  }
+
+  .updates-list {
+    display: none;
+  }
+
+  .narrow-note {
+    display: block;
+  }
 }
